@@ -87,3 +87,14 @@ module.exports = {
 
 - 웹팩의 기본적인 동작 외 추가적인 기능을 제공하는 속성
 - `loader` 는 파일을 해석하고 변환하는 과정에 관여하고, `plugin` 은 결과물의 형태를 바꾸는 역할을 한다.
+- 플러그인은 매개변수 및 옵션을 사용할 수 있으므로, `plugins` 속성에 새로운 인스턴스로 전달해야 한다.
+```js
+const HtmlWebpackPlugin = require('html-webpack-plugin'); //npm 으로 설치됨
+const webpack = require('webpack');
+module.exports = {
+  plugins: [
+    new webpack.ProgressPlugin(),
+    new HtmlWebpackPlugin({ template: './src/index.html' }),
+  ],
+};
+```
